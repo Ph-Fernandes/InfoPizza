@@ -1,43 +1,39 @@
 DEBUG:root:form=<tr>
-    <th><label for="id_itens">Itens:</label></th>
+    <th><label for="id_form-cat">Cat:</label></th>
+    <td>
+      <ul class="errorlist"><li>Este campo é obrigatório.</li></ul>
+      <input type="number" name="form-cat" required id="id_form-cat">
+      
+      
+    </td>
+  </tr>
+
+  <tr>
+    <th><label for="id_form-nome">Nome:</label></th>
     <td>
       
-      <select name="itens" required id="id_itens" multiple>
-  <option value="1" selected>Item object (1)</option>
+      <input type="text" name="form-nome" value="Bacon" maxlength="100" required id="id_form-nome">
+      
+      
+    </td>
+  </tr>
 
-  <option value="6">Item object (6)</option>
+  <tr>
+    <th><label for="id_form-desc">Desc:</label></th>
+    <td>
+      
+      <input type="text" name="form-desc" value="Bacon" maxlength="250" required id="id_form-desc">
+      
+      
+    </td>
+  </tr>
 
+  <tr>
+    <th><label for="id_form-info">Info:</label></th>
+    <td>
+      <ul class="errorlist"><li>Este campo é obrigatório.</li></ul>
+      <select name="form-info" required id="id_form-info" multiple>
 </select>
-      
-      
-    </td>
-  </tr>
-
-  <tr>
-    <th><label for="id_status">Status:</label></th>
-    <td>
-      <ul class="errorlist"><li>Este campo é obrigatório.</li></ul>
-      <input type="text" name="status" maxlength="50" required id="id_status">
-      
-      
-    </td>
-  </tr>
-
-  <tr>
-    <th><label for="id_preco">Preco:</label></th>
-    <td>
-      <ul class="errorlist"><li>Este campo é obrigatório.</li></ul>
-      <input type="number" name="preco" step="0.01" required id="id_preco">
-      
-      
-    </td>
-  </tr>
-
-  <tr>
-    <th><label for="id_metodo_pag">Metodo pag:</label></th>
-    <td>
-      <ul class="errorlist"><li>Este campo é obrigatório.</li></ul>
-      <input type="text" name="metodo_pag" maxlength="50" required id="id_metodo_pag">
       
       
         

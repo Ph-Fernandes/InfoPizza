@@ -2,6 +2,7 @@ from pyexpat import model
 from django.shortcuts import render, redirect  
 from app.forms import * 
 from app.models import *
+import logging
 
 def index(request) :
     return render(request,'index.html')
@@ -15,16 +16,21 @@ def cardapioPizzaIndex(request) :
 
 def cardapioPizzaInsert(request) :
     if request.method == "POST":
-        form = ItemForm(request.POST)  
+        form = ItemForm(request.POST,prefix='form')
+        form2 = ItemInfoForm(request.POST,prefix='form2') 
+        logging.basicConfig(filename='mylog.log', level=logging.DEBUG)
+        logging.debug('form=%s', form)
         if form.is_valid():  
             try:  
-                form.save()  
+                form.save()
+                form2.save()
                 return redirect('/cardapio/pizza')  
             except:  
                 pass  
     else:  
-        form = ItemForm({'cat':'1'}) 
-    return render(request,'cardapio/pizza/insert.html',{'form':form})  
+        form = ItemForm({'cat':'1'})
+        form2 = ItemInfoForm()
+    return render(request,'cardapio/pizza/insert.html',{'form':form,'form2':form2})  
 
 def cardapioPizzaEdit(request,id) :
     pizza = Item.objects.get(id=id)  
@@ -84,9 +90,6 @@ def pedidosIndex(request) :
 def pedidosMesaOrder(request,id) :
     if request.method == "POST":  
         form = PedidoForm(request.POST)
-        import logging
-        logging.basicConfig(filename='mylog.log', level=logging.DEBUG)
-        logging.debug('form=%s', form)
         if form.is_valid():  
             try:  
                 form.save()  
