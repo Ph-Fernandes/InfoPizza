@@ -1,50 +1,28 @@
+from telnetlib import theNULL
 from django.db import models
 
-class Item(models.Model):   
-    cat = models.SmallIntegerField() 
+class Pizza(models.Model):   
     nome = models.CharField(max_length=100)  
     desc = models.CharField(max_length=250)     
     class Meta:  
-        db_table = "item"  
+        db_table = "pizza"  
 
-class ItemInfo(models.Model):
-    item = models.ForeignKey(Item,on_delete=models.CASCADE,related_name='infos')
+class PizzaInfo(models.Model):
+    pizza = models.ForeignKey(Pizza,on_delete=models.CASCADE,related_name='infos')
     tamanho = models.CharField(max_length=2,choices=[("B","B"),("M","M"),("G","G"),("GG","GG")])
     preco = models.DecimalField(max_digits=4,decimal_places=2)
     class Meta:
-        db_table = "iteminfo"
+        db_table = "pizzaInfo"
 
-class ClienteEndereco(models.Model):
-    logradouro = models.CharField(max_length=100)
-    numero = models.IntegerField(max_length=10)
-    complemento = models.CharField(max_length=100)
-    bairro = models.CharField(max_length=100)
-    cidade = models.CharField(max_length=100)
-    cep = models.IntegerField(max_length=8)
-    pdr = models.CharField(max_length=300) 
+class Bebida(models.Model):   
+    nome = models.CharField(max_length=100)  
+    desc = models.CharField(max_length=250)     
+    class Meta:  
+        db_table = "bebida"  
 
-class Cliente(models.Model):
-    id = models.AutoField(primary_key=True)
-    nome = models.CharField(max_length=50)
-    sobrenome = models.CharField(max_length=100)
-    cpf = models.IntegerField(max_length=11)
-    endereco = models.OneToOneField(ClienteEndereco,on_delete=models.CASCADE)
+class BebidaInfo(models.Model):
+    bebida = models.ForeignKey(Bebida,on_delete=models.CASCADE,related_name='infos')
+    tamanho = models.CharField(max_length=6,choices=[("350ml","350ml"),("600ml","600ml"),("1500ml","1500ml"),("2000ml","2000ml")])
+    preco = models.DecimalField(max_digits=4,decimal_places=2)
     class Meta:
-        db_table = "cliente"
-
-class Pedido(models.Model):
-    id = models.AutoField(primary_key=True)
-    itens = models.ManyToManyField(Item)
-    status = models.CharField(max_length=50,null=True)       
-    preco =  models.DecimalField(max_digits=4,decimal_places=2,null=True) 
-    metodo_pag = models.CharField(max_length=50,null=True)
-    class Meta:
-        db_table = "pedido"
-
-
-class Mesa(models.Model):
-    id = models.AutoField(primary_key=True)
-    status = models.BooleanField(default=True)
-    pedido = models.ForeignKey(Pedido, on_delete=models.CASCADE,null=True)
-    class Meta:
-        db_table = "mesa"
+        db_table = "bebidaInfo"

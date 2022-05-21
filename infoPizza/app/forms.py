@@ -2,22 +2,23 @@ from django import forms
 from app.models import * 
 from django.forms import inlineformset_factory  
 
-class ItemForm(forms.ModelForm):
+class PizzaForm(forms.ModelForm):
     class Meta:
-        model = Item
+        model = Pizza
         fields = "__all__"
-class ItemInfoForm(forms.ModelForm):
+class PizzaInfoForm(forms.ModelForm):
     class Meta:
-        model = ItemInfo
+        model = PizzaInfo
+        fields = ('tamanho','preco')
+class BebidaForm(forms.ModelForm):
+    class Meta:
+        model = Bebida
+        fields = "__all__"
+class BebidaInfoForm(forms.ModelForm):
+    class Meta:
+        model = BebidaInfo
         fields = ('tamanho','preco')
 
-ItemFormset = inlineformset_factory(Item, ItemInfo,form=ItemInfoForm, extra=4,max_num=4)
+PizzaFormset = inlineformset_factory(Pizza,PizzaInfo,form=PizzaInfoForm, extra=4,max_num=4)
+BebidaFormset = inlineformset_factory(Bebida,BebidaInfo,form=BebidaInfoForm, extra=4,max_num=4)
         
-class PedidoForm(forms.ModelForm):
-    class Meta:
-        model = Pedido
-        fields = "__all__"
-class MesaForm(forms.ModelForm):
-    class Meta:
-        model = Mesa
-        fields = "__all__"

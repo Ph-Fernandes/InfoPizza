@@ -106,3 +106,4 @@ INFO:django.utils.autoreload:C:\Users\igoro\OneDrive\Documentos\GitHub\infoPizza
 DEBUG:root:form=2
 DEBUG:root:form=2
 DEBUG:root:form=1
+INFO:django.utils.autoreload:C:\Users\igoro\OneDrive\Documentos\GitHub\infoPizza\infoPizza\app\models.py changed, reloading.
