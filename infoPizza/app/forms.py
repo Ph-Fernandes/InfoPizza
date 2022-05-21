@@ -1,17 +1,18 @@
-from django import forms  
-from app.models import *  
+from django import forms
+from app.models import * 
+from django.forms import inlineformset_factory  
 
-
-
-class ItemInfoForm(forms.ModelForm):
-    class Meta:
-        model = ItemInfo
-        fields = "__all__"
 class ItemForm(forms.ModelForm):
     class Meta:
         model = Item
         fields = "__all__"
-        info = ItemInfoForm.Meta.fields
+class ItemInfoForm(forms.ModelForm):
+    class Meta:
+        model = ItemInfo
+        fields = ('tamanho','preco')
+
+ItemFormset = inlineformset_factory(Item, ItemInfo,form=ItemInfoForm, extra=4,max_num=4)
+        
 class PedidoForm(forms.ModelForm):
     class Meta:
         model = Pedido

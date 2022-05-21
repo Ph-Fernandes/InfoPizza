@@ -1,18 +1,18 @@
-from django.db import models 
-
-
-class ItemInfo(models.Model):
-    tamanho = models.CharField(max_length=10)
-    preco = models.DecimalField(max_digits=4,decimal_places=2)
+from django.db import models
 
 class Item(models.Model):   
-    id = models.AutoField(primary_key=True)
     cat = models.SmallIntegerField() 
     nome = models.CharField(max_length=100)  
-    desc = models.CharField(max_length=250)
-    info = models.ManyToManyField(ItemInfo)      
+    desc = models.CharField(max_length=250)     
     class Meta:  
         db_table = "item"  
+
+class ItemInfo(models.Model):
+    item = models.ForeignKey(Item,on_delete=models.CASCADE,related_name='infos')
+    tamanho = models.CharField(max_length=2,choices=[("B","B"),("M","M"),("G","G"),("GG","GG")])
+    preco = models.DecimalField(max_digits=4,decimal_places=2)
+    class Meta:
+        db_table = "iteminfo"
 
 class ClienteEndereco(models.Model):
     logradouro = models.CharField(max_length=100)

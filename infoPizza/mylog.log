@@ -1,42 +1,396 @@
-DEBUG:root:form=<tr>
-    <th><label for="id_form-cat">Cat:</label></th>
-    <td>
-      <ul class="errorlist"><li>Este campo é obrigatório.</li></ul>
-      <input type="number" name="form-cat" required id="id_form-cat">
-      
+DEBUG:root:form=<input type="hidden" name="form2-TOTAL_FORMS" value="4" id="id_form2-TOTAL_FORMS"><input type="hidden" name="form2-INITIAL_FORMS" value="4" id="id_form2-INITIAL_FORMS"><input type="hidden" name="form2-MIN_NUM_FORMS" value="0" id="id_form2-MIN_NUM_FORMS"><input type="hidden" name="form2-MAX_NUM_FORMS" value="4" id="id_form2-MAX_NUM_FORMS"><tr>
+    <td colspan="2">
+      <ul class="errorlist nonfield"><li>(Campo oculto id) Este campo é obrigatório.</li></ul>
       
     </td>
   </tr>
 
-  <tr>
-    <th><label for="id_form-nome">Nome:</label></th>
-    <td>
-      
-      <input type="text" name="form-nome" value="Bacon" maxlength="100" required id="id_form-nome">
-      
-      
-    </td>
-  </tr>
 
   <tr>
-    <th><label for="id_form-desc">Desc:</label></th>
+    <th><label for="id_form2-0-tamanho">Tamanho:</label></th>
     <td>
       
-      <input type="text" name="form-desc" value="Bacon" maxlength="250" required id="id_form-desc">
-      
-      
-    </td>
-  </tr>
+      <select name="form2-0-tamanho" id="id_form2-0-tamanho">
+  <option value="">---------</option>
 
-  <tr>
-    <th><label for="id_form-info">Info:</label></th>
-    <td>
-      <ul class="errorlist"><li>Este campo é obrigatório.</li></ul>
-      <select name="form-info" required id="id_form-info" multiple>
+  <option value="B" selected>B</option>
+
+  <option value="M">M</option>
+
+  <option value="G">G</option>
+
+  <option value="GG">GG</option>
+
 </select>
       
       
-        
+    </td>
+  </tr>
+
+  <tr>
+    <th><label for="id_form2-0-preco">Preco:</label></th>
+    <td>
+      
+      <input type="number" name="form2-0-preco" value="2.00" step="0.01" id="id_form2-0-preco">
+      
       
     </td>
   </tr>
+
+  <tr>
+    <th><label for="id_form2-0-DELETE">Apagar:</label></th>
+    <td>
+      
+      <input type="checkbox" name="form2-0-DELETE" id="id_form2-0-DELETE">
+      
+      
+        <input type="hidden" name="form2-0-id" id="id_form2-0-id"><input type="hidden" name="form2-0-item" id="id_form2-0-item">
+      
+    </td>
+  </tr><tr>
+    <td colspan="2">
+      <ul class="errorlist nonfield"><li>(Campo oculto id) Este campo é obrigatório.</li></ul>
+      
+    </td>
+  </tr>
+
+
+  <tr>
+    <th><label for="id_form2-1-tamanho">Tamanho:</label></th>
+    <td>
+      
+      <select name="form2-1-tamanho" id="id_form2-1-tamanho">
+  <option value="">---------</option>
+
+  <option value="B" selected>B</option>
+
+  <option value="M">M</option>
+
+  <option value="G">G</option>
+
+  <option value="GG">GG</option>
+
+</select>
+      
+      
+    </td>
+  </tr>
+
+  <tr>
+    <th><label for="id_form2-1-preco">Preco:</label></th>
+    <td>
+      
+      <input type="number" name="form2-1-preco" value="2.00" step="0.01" id="id_form2-1-preco">
+      
+      
+    </td>
+  </tr>
+
+  <tr>
+    <th><label for="id_form2-1-DELETE">Apagar:</label></th>
+    <td>
+      
+      <input type="checkbox" name="form2-1-DELETE" id="id_form2-1-DELETE">
+      
+      
+        <input type="hidden" name="form2-1-id" id="id_form2-1-id"><input type="hidden" name="form2-1-item" id="id_form2-1-item">
+      
+    </td>
+  </tr><tr>
+    <td colspan="2">
+      <ul class="errorlist nonfield"><li>(Campo oculto id) Este campo é obrigatório.</li></ul>
+      
+    </td>
+  </tr>
+
+
+  <tr>
+    <th><label for="id_form2-2-tamanho">Tamanho:</label></th>
+    <td>
+      
+      <select name="form2-2-tamanho" id="id_form2-2-tamanho">
+  <option value="">---------</option>
+
+  <option value="B">B</option>
+
+  <option value="M">M</option>
+
+  <option value="G" selected>G</option>
+
+  <option value="GG">GG</option>
+
+</select>
+      
+      
+    </td>
+  </tr>
+
+  <tr>
+    <th><label for="id_form2-2-preco">Preco:</label></th>
+    <td>
+      
+      <input type="number" name="form2-2-preco" value="2.00" step="0.01" id="id_form2-2-preco">
+      
+      
+    </td>
+  </tr>
+
+  <tr>
+    <th><label for="id_form2-2-DELETE">Apagar:</label></th>
+    <td>
+      
+      <input type="checkbox" name="form2-2-DELETE" id="id_form2-2-DELETE">
+      
+      
+        <input type="hidden" name="form2-2-id" id="id_form2-2-id"><input type="hidden" name="form2-2-item" id="id_form2-2-item">
+      
+    </td>
+  </tr><tr>
+    <td colspan="2">
+      <ul class="errorlist nonfield"><li>(Campo oculto id) Este campo é obrigatório.</li></ul>
+      
+    </td>
+  </tr>
+
+
+  <tr>
+    <th><label for="id_form2-3-tamanho">Tamanho:</label></th>
+    <td>
+      
+      <select name="form2-3-tamanho" id="id_form2-3-tamanho">
+  <option value="">---------</option>
+
+  <option value="B">B</option>
+
+  <option value="M">M</option>
+
+  <option value="G">G</option>
+
+  <option value="GG" selected>GG</option>
+
+</select>
+      
+      
+    </td>
+  </tr>
+
+  <tr>
+    <th><label for="id_form2-3-preco">Preco:</label></th>
+    <td>
+      
+      <input type="number" name="form2-3-preco" value="2.00" step="0.01" id="id_form2-3-preco">
+      
+      
+    </td>
+  </tr>
+
+  <tr>
+    <th><label for="id_form2-3-DELETE">Apagar:</label></th>
+    <td>
+      
+      <input type="checkbox" name="form2-3-DELETE" id="id_form2-3-DELETE">
+      
+      
+        <input type="hidden" name="form2-3-id" id="id_form2-3-id"><input type="hidden" name="form2-3-item" id="id_form2-3-item">
+      
+    </td>
+  </tr>
+INFO:django.utils.autoreload:C:\Users\igoro\OneDrive\Documentos\GitHub\infoPizza\infoPizza\app\views.py changed, reloading.
+DEBUG:root:form=<input type="hidden" name="form2-TOTAL_FORMS" value="4" id="id_form2-TOTAL_FORMS"><input type="hidden" name="form2-INITIAL_FORMS" value="4" id="id_form2-INITIAL_FORMS"><input type="hidden" name="form2-MIN_NUM_FORMS" value="0" id="id_form2-MIN_NUM_FORMS"><input type="hidden" name="form2-MAX_NUM_FORMS" value="4" id="id_form2-MAX_NUM_FORMS"><tr>
+    <td colspan="2">
+      <ul class="errorlist nonfield"><li>(Campo oculto id) Este campo é obrigatório.</li></ul>
+      
+    </td>
+  </tr>
+
+
+  <tr>
+    <th><label for="id_form2-0-tamanho">Tamanho:</label></th>
+    <td>
+      
+      <select name="form2-0-tamanho" id="id_form2-0-tamanho">
+  <option value="">---------</option>
+
+  <option value="B" selected>B</option>
+
+  <option value="M">M</option>
+
+  <option value="G">G</option>
+
+  <option value="GG">GG</option>
+
+</select>
+      
+      
+    </td>
+  </tr>
+
+  <tr>
+    <th><label for="id_form2-0-preco">Preco:</label></th>
+    <td>
+      
+      <input type="number" name="form2-0-preco" value="2.00" step="0.01" id="id_form2-0-preco">
+      
+      
+    </td>
+  </tr>
+
+  <tr>
+    <th><label for="id_form2-0-DELETE">Apagar:</label></th>
+    <td>
+      
+      <input type="checkbox" name="form2-0-DELETE" id="id_form2-0-DELETE">
+      
+      
+        <input type="hidden" name="form2-0-id" id="id_form2-0-id"><input type="hidden" name="form2-0-item" id="id_form2-0-item">
+      
+    </td>
+  </tr><tr>
+    <td colspan="2">
+      <ul class="errorlist nonfield"><li>(Campo oculto id) Este campo é obrigatório.</li></ul>
+      
+    </td>
+  </tr>
+
+
+  <tr>
+    <th><label for="id_form2-1-tamanho">Tamanho:</label></th>
+    <td>
+      
+      <select name="form2-1-tamanho" id="id_form2-1-tamanho">
+  <option value="">---------</option>
+
+  <option value="B" selected>B</option>
+
+  <option value="M">M</option>
+
+  <option value="G">G</option>
+
+  <option value="GG">GG</option>
+
+</select>
+      
+      
+    </td>
+  </tr>
+
+  <tr>
+    <th><label for="id_form2-1-preco">Preco:</label></th>
+    <td>
+      
+      <input type="number" name="form2-1-preco" value="2.00" step="0.01" id="id_form2-1-preco">
+      
+      
+    </td>
+  </tr>
+
+  <tr>
+    <th><label for="id_form2-1-DELETE">Apagar:</label></th>
+    <td>
+      
+      <input type="checkbox" name="form2-1-DELETE" id="id_form2-1-DELETE">
+      
+      
+        <input type="hidden" name="form2-1-id" id="id_form2-1-id"><input type="hidden" name="form2-1-item" id="id_form2-1-item">
+      
+    </td>
+  </tr><tr>
+    <td colspan="2">
+      <ul class="errorlist nonfield"><li>(Campo oculto id) Este campo é obrigatório.</li></ul>
+      
+    </td>
+  </tr>
+
+
+  <tr>
+    <th><label for="id_form2-2-tamanho">Tamanho:</label></th>
+    <td>
+      
+      <select name="form2-2-tamanho" id="id_form2-2-tamanho">
+  <option value="">---------</option>
+
+  <option value="B">B</option>
+
+  <option value="M">M</option>
+
+  <option value="G" selected>G</option>
+
+  <option value="GG">GG</option>
+
+</select>
+      
+      
+    </td>
+  </tr>
+
+  <tr>
+    <th><label for="id_form2-2-preco">Preco:</label></th>
+    <td>
+      
+      <input type="number" name="form2-2-preco" value="2.00" step="0.01" id="id_form2-2-preco">
+      
+      
+    </td>
+  </tr>
+
+  <tr>
+    <th><label for="id_form2-2-DELETE">Apagar:</label></th>
+    <td>
+      
+      <input type="checkbox" name="form2-2-DELETE" id="id_form2-2-DELETE">
+      
+      
+        <input type="hidden" name="form2-2-id" id="id_form2-2-id"><input type="hidden" name="form2-2-item" id="id_form2-2-item">
+      
+    </td>
+  </tr><tr>
+    <td colspan="2">
+      <ul class="errorlist nonfield"><li>(Campo oculto id) Este campo é obrigatório.</li></ul>
+      
+    </td>
+  </tr>
+
+
+  <tr>
+    <th><label for="id_form2-3-tamanho">Tamanho:</label></th>
+    <td>
+      
+      <select name="form2-3-tamanho" id="id_form2-3-tamanho">
+  <option value="">---------</option>
+
+  <option value="B">B</option>
+
+  <option value="M">M</option>
+
+  <option value="G">G</option>
+
+  <option value="GG" selected>GG</option>
+
+</select>
+      
+      
+    </td>
+  </tr>
+
+  <tr>
+    <th><label for="id_form2-3-preco">Preco:</label></th>
+    <td>
+      
+      <input type="number" name="form2-3-preco" value="2.00" step="0.01" id="id_form2-3-preco">
+      
+      
+    </td>
+  </tr>
+
+  <tr>
+    <th><label for="id_form2-3-DELETE">Apagar:</label></th>
+    <td>
+      
+      <input type="checkbox" name="form2-3-DELETE" id="id_form2-3-DELETE">
+      
+      
+        <input type="hidden" name="form2-3-id" id="id_form2-3-id"><input type="hidden" name="form2-3-item" id="id_form2-3-item">
+      
+    </td>
+  </tr>
+INFO:django.utils.autoreload:C:\Users\igoro\OneDrive\Documentos\GitHub\infoPizza\infoPizza\app\views.py changed, reloading.

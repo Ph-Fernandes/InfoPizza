@@ -80,12 +80,20 @@ WSGI_APPLICATION = 'infoPizza.wsgi.application'
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
 DATABASES = {  
+    # 'default': {  
+    #     'ENGINE': 'django.db.backends.mysql',  
+    #     'NAME': 'bdex02p7yzg27hsun68r',  
+    #     'USER':'uppm60sqdeo1rfh2',  
+    #     'PASSWORD':'SmwfBXyzbuFcHWqxvhis',  
+    #     'HOST':'bdex02p7yzg27hsun68r-mysql.services.clever-cloud.com',  
+    #     'PORT':'3306'  
+    # } 
     'default': {  
         'ENGINE': 'django.db.backends.mysql',  
-        'NAME': 'bdex02p7yzg27hsun68r',  
-        'USER':'uppm60sqdeo1rfh2',  
-        'PASSWORD':'SmwfBXyzbuFcHWqxvhis',  
-        'HOST':'bdex02p7yzg27hsun68r-mysql.services.clever-cloud.com',  
+        'NAME': 'infopizza',  
+        'USER':'root',  
+        'PASSWORD':'123456',  
+        'HOST':'localhost',  
         'PORT':'3306'  
     }  
 }  

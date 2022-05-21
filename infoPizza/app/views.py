@@ -1,5 +1,6 @@
 from pyexpat import model
-from django.shortcuts import render, redirect  
+from django.shortcuts import render, redirect 
+  
 from app.forms import * 
 from app.models import *
 import logging
@@ -15,12 +16,11 @@ def cardapioPizzaIndex(request) :
     return render(request,"cardapio/pizza/index.html",{'pizzas':pizzas}) 
 
 def cardapioPizzaInsert(request) :
+    novoItem = Item()
     if request.method == "POST":
-        form = ItemForm(request.POST,prefix='form')
-        form2 = ItemInfoForm(request.POST,prefix='form2') 
-        logging.basicConfig(filename='mylog.log', level=logging.DEBUG)
-        logging.debug('form=%s', form)
-        if form.is_valid():  
+        form = ItemForm(request.POST,request.FILES,instance=novoItem,prefix='form')
+        form2 = ItemFormset(request.POST,request.FILES,instance=novoItem,prefix='form2')
+        if form.is_valid() and form2.is_valid():  
             try:  
                 form.save()
                 form2.save()
@@ -28,21 +28,30 @@ def cardapioPizzaInsert(request) :
             except:  
                 pass  
     else:  
-        form = ItemForm({'cat':'1'})
-        form2 = ItemInfoForm()
+        form = ItemForm({'form-cat':'1'},instance=novoItem,prefix='form')
+        form2 = ItemFormset(instance=novoItem,prefix='form2')
     return render(request,'cardapio/pizza/insert.html',{'form':form,'form2':form2})  
 
-def cardapioPizzaEdit(request,id) :
-    pizza = Item.objects.get(id=id)  
-    return render(request,'cardapio/pizza/edit.html', {'pizza':pizza})
+
 
 def cardapioPizzaUpdate(request, id):  
-    pizza = Item.objects.get(id=id)  
-    form = ItemForm(request.POST, instance = pizza)  
-    if form.is_valid():  
-        form.save()  
-        return redirect("/cardapio/pizza")  
-    return render(request, 'cardapio/pizza/edit.html', {'pizza': pizza})  
+    itemedit = Item.objects.get(id=id)
+    if request.method == 'POST':
+        form = ItemForm(request.POST,request.FILES,instance=itemedit,prefix='form')
+        form2 = ItemFormset(request.POST,request.FILES,instance=itemedit,prefix='form2')
+        logging.basicConfig(filename='mylog.log', level=logging.DEBUG)
+        logging.debug('form=%s', form2)
+        if form.is_valid() and form2.is_valid():  
+            try:  
+                form.save()
+                form2.save()
+                return redirect('/cardapio/pizza')  
+            except:  
+                pass
+    else:
+        form = ItemForm(instance=itemedit,prefix='form')
+        form2 = ItemFormset(instance=itemedit,prefix='form2')
+    return render(request, 'cardapio/pizza/edit.html', {'form':form,'form2':form2})  
 
 def cardapioPizzaDestroy(request, id):  
     pizza = Item.objects.get(id=id)  
