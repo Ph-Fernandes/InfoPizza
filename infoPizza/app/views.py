@@ -16,10 +16,10 @@ def cardapioPizzaIndex(request) :
     return render(request,"cardapio/pizza/index.html",{'pizzas':pizzas}) 
 
 def cardapioPizzaInsert(request) :
-    novoItem = Item()
+    novaPizza = Item()
     if request.method == "POST":
-        form = ItemForm(request.POST,request.FILES,instance=novoItem,prefix='form')
-        form2 = ItemFormset(request.POST,request.FILES,instance=novoItem,prefix='form2')
+        form = ItemForm(request.POST,request.FILES,instance=novaPizza,prefix='form')
+        form2 = ItemFormset(request.POST,request.FILES,instance=novaPizza,prefix='form2')
         if form.is_valid() and form2.is_valid():  
             try:  
                 form.save()
@@ -28,19 +28,19 @@ def cardapioPizzaInsert(request) :
             except:  
                 pass  
     else:  
-        form = ItemForm({'form-cat':'1'},instance=novoItem,prefix='form')
-        form2 = ItemFormset(instance=novoItem,prefix='form2')
+        form = ItemForm({'form-cat':'1'},instance=novaPizza,prefix='form')
+        form2 = ItemFormset(instance=novaPizza,prefix='form2')
     return render(request,'cardapio/pizza/insert.html',{'form':form,'form2':form2})  
 
 
 
 def cardapioPizzaUpdate(request, id):  
-    itemedit = Item.objects.get(id=id)
+    pizza = Item.objects.get(id=id)
     if request.method == 'POST':
-        form = ItemForm(request.POST,request.FILES,instance=itemedit,prefix='form')
-        form2 = ItemFormset(request.POST,request.FILES,instance=itemedit,prefix='form2')
+        form = ItemForm(request.POST,request.FILES,instance=pizza,prefix='form')
+        form2 = ItemFormset(request.POST,request.FILES,instance=pizza,prefix='form2')
         logging.basicConfig(filename='mylog.log', level=logging.DEBUG)
-        logging.debug('form=%s', form2)
+        logging.debug('form=%s', pizza.id)
         if form.is_valid() and form2.is_valid():  
             try:  
                 form.save()
@@ -49,9 +49,9 @@ def cardapioPizzaUpdate(request, id):
             except:  
                 pass
     else:
-        form = ItemForm(instance=itemedit,prefix='form')
-        form2 = ItemFormset(instance=itemedit,prefix='form2')
-    return render(request, 'cardapio/pizza/edit.html', {'form':form,'form2':form2})  
+        form = ItemForm(instance=pizza,prefix='form')
+        form2 = ItemFormset(instance=pizza,prefix='form2')
+    return render(request, 'cardapio/pizza/edit.html', {'form':form,'form2':form2,'pizza':pizza})  
 
 def cardapioPizzaDestroy(request, id):  
     pizza = Item.objects.get(id=id)  

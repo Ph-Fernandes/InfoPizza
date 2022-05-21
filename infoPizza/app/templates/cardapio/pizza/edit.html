@@ -23,9 +23,10 @@
     {{ form.desc.label }} {{ form.desc }}
     <h5 class="text-info">Tamanhos e Preços</h5>
     {{ form2.management_form }}
-    {% for form in form2 %}
-    {{ form.tamanho.label }} {{ form.tamanho }}
-    {{ form.preco.label }} {{ form.preco }}
+    {% for formx in form2 %}
+    {{ formx.id|default:pizza.id}}
+    {{ formx.tamanho.label }} {{ formx.tamanho }}
+    {{ formx.preco.label }} {{ formx.preco }}
       <br>
     {% endfor %}
 </div> 
