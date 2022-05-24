@@ -97,7 +97,7 @@ def cardapioBebidaUpdate(request, id):
     return render(request, 'cardapio/bebida/edit.html', {'form':form,'form2':form2,'bebida':bebida})  
 
 def cardapioBebidaDestroy(request, id):  
-    bebida = Bebida.objects.get(id=id)  
+    bebida = Produto.objects.get(id=id)  
     bebida.delete()  
     return redirect("/cardapio/bebida")
 
