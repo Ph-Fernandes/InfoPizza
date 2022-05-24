@@ -11,13 +11,13 @@ def cardapioIndex(request) :
     return render(request,'cardapio/index.html') 
 
 def cardapioPizzaIndex(request) :
-    pizzas = Pizza.objects.all() 
+    pizzas = Produto.objects.filter(cat__iexact=1)
     return render(request,"cardapio/pizza/index.html",{'pizzas':pizzas}) 
 
 def cardapioPizzaInsert(request) :
-    novaPizza = Pizza()
+    novaPizza = Produto(cat=1)
     if request.method == "POST":
-        form = PizzaForm(request.POST,request.FILES,instance=novaPizza,prefix='form')
+        form = ProdutoForm(request.POST,request.FILES,instance=novaPizza,prefix='form')
         form2 = PizzaFormset(request.POST,request.FILES,instance=novaPizza,prefix='form2')
         if form.is_valid() and form2.is_valid():  
             try:  
@@ -27,16 +27,16 @@ def cardapioPizzaInsert(request) :
             except:  
                 pass  
     else:  
-        form = PizzaForm({'form-cat':'1'},instance=novaPizza,prefix='form')
+        form = ProdutoForm(instance=novaPizza,prefix='form')
         form2 = PizzaFormset(instance=novaPizza,prefix='form2')
     return render(request,'cardapio/pizza/insert.html',{'form':form,'form2':form2})  
 
 
 
 def cardapioPizzaUpdate(request, id):  
-    pizza = Pizza.objects.get(id=id)
+    pizza = Produto.objects.get(id=id)
     if request.method == 'POST':
-        form = PizzaForm(request.POST,request.FILES,instance=pizza,prefix='form')
+        form = ProdutoForm(request.POST,request.FILES,instance=pizza,prefix='form')
         form2 = PizzaFormset(request.POST,request.FILES,instance=pizza,prefix='form2')
         if form.is_valid() and form2.is_valid():  
             try:  
@@ -46,24 +46,24 @@ def cardapioPizzaUpdate(request, id):
             except:  
                 pass
     else:
-        form = PizzaForm(instance=pizza,prefix='form')
+        form = ProdutoForm(instance=pizza,prefix='form')
         form2 = PizzaFormset(instance=pizza,prefix='form2')
     return render(request, 'cardapio/pizza/edit.html', {'form':form,'form2':form2,'pizza':pizza})  
 
 def cardapioPizzaDestroy(request, id):  
-    pizza = Pizza.objects.get(id=id)  
+    pizza = Produto.objects.get(id=id)  
     pizza.delete()  
     return redirect("/cardapio/pizza")
 
 
 def cardapioBebidaIndex(request) :
-    bebidas = Bebida.objects.all() 
+    bebidas = Produto.objects.filter(cat__iexact=2)
     return render(request,"cardapio/bebida/index.html",{'bebidas':bebidas}) 
 
 def cardapioBebidaInsert(request) :
-    novaBebida = Bebida()
+    novaBebida = Produto(cat=2)
     if request.method == "POST":
-        form = BebidaForm(request.POST,request.FILES,instance=novaBebida,prefix='form')
+        form = ProdutoForm(request.POST,request.FILES,instance=novaBebida,prefix='form')
         form2 = BebidaFormset(request.POST,request.FILES,instance=novaBebida,prefix='form2')
         if form.is_valid() and form2.is_valid():  
             try:  
@@ -73,16 +73,16 @@ def cardapioBebidaInsert(request) :
             except:  
                 pass  
     else:  
-        form = BebidaForm({'form-cat':'1'},instance=novaBebida,prefix='form')
+        form = ProdutoForm(instance=novaBebida,prefix='form')
         form2 = BebidaFormset(instance=novaBebida,prefix='form2')
     return render(request,'cardapio/bebida/insert.html',{'form':form,'form2':form2})  
 
 
 
 def cardapioBebidaUpdate(request, id):  
-    bebida = Bebida.objects.get(id=id)
+    bebida = Produto.objects.get(id=id)
     if request.method == 'POST':
-        form = BebidaForm(request.POST,request.FILES,instance=bebida,prefix='form')
+        form = ProdutoForm(request.POST,request.FILES,instance=bebida,prefix='form')
         form2 = BebidaFormset(request.POST,request.FILES,instance=bebida,prefix='form2')
         if form.is_valid() and form2.is_valid():  
             try:  
@@ -92,7 +92,7 @@ def cardapioBebidaUpdate(request, id):
             except:  
                 pass
     else:
-        form = BebidaForm(instance=bebida,prefix='form')
+        form = ProdutoForm(instance=bebida,prefix='form')
         form2 = BebidaFormset(instance=bebida,prefix='form2')
     return render(request, 'cardapio/bebida/edit.html', {'form':form,'form2':form2,'bebida':bebida})  
 
