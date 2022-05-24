@@ -18,14 +18,14 @@
     </div>  
   </div>  
   <div class="card-body">
-    {{ form.cat.as_hidden }}
     {{ form.nome.label }} {{ form.nome }}
     {{ form.desc.label }} {{ form.desc }}
     <h5 class="text-info">Tamanhos e Preços</h5>
     {{ form2.management_form }}
     {% for form in form2 %}
-    {{ form.tamanho.label }} {{ form.tamanho }}
+    {{ form.tamanho.label }} {{ form.tamanho }} 
     {{ form.preco.label }} {{ form.preco }}
+    {{ form.DELETE.label }} {{ form.DELETE }}
       <br>
     {% endfor %}
 </div> 

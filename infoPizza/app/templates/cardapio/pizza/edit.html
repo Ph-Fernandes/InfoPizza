@@ -18,7 +18,6 @@
     </div>  
   </div>  
   <div class="card-body">
-    {{ form.cat.as_hidden }}
     {{ form.nome.label }} {{ form.nome }}
     {{ form.desc.label }} {{ form.desc }}
     <h5 class="text-info">Tamanhos e Preços</h5>
@@ -27,6 +26,7 @@
     {{ formx.id|default:pizza.id}}
     {{ formx.tamanho.label }} {{ formx.tamanho }}
     {{ formx.preco.label }} {{ formx.preco }}
+    {{ formx.DELETE.label }} {{ formx.DELETE }}
       <br>
     {% endfor %}
 </div> 
