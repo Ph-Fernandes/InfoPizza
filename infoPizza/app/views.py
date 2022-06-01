@@ -97,8 +97,36 @@ def cardapioBebidaUpdate(request, id):
     return render(request, 'cardapio/bebida/edit.html', {'form':form,'form2':form2,'bebida':bebida})  
 
 def cardapioBebidaDestroy(request, id):  
-    bebida = Bebida.objects.get(id=id)  
+    bebida = Produto.objects.get(id=id)  
     bebida.delete()  
     return redirect("/cardapio/bebida")
 
 
+def pedidosIndex(request) :
+    pedidos = Pedido.objects.all()
+    return render(request,"pedidos/index.html",{'pedidos':pedidos}) 
+
+def pedidosInsert(request) :
+    novoPedido = Pedido()
+    if request.method == "POST":
+        form = PedidoForm(request.POST,request.FILES,instance=novoPedido,prefix='form')
+        form2 = PedidoFormset(request.POST,request.FILES,instance=novoPedido,prefix='form2')
+        form3 = PedidoFormset(request.POST,request.FILES,instance=novoPedido,prefix='form3')
+        if form.is_valid() and form2.is_valid() and form3.is_valid():  
+            try:  
+                form.save()
+                form2.save()
+                return redirect('/pedidos')  
+            except:  
+                pass  
+    else:  
+        form = PedidoForm(instance=novoPedido,prefix='form')
+        form2 = PedidoFormset(instance=novoPedido,prefix='form2')
+        form3 = PedidoFormset(instance=novoPedido,prefix='form3')
+    return render(request,'pedidos/insert.html',{'form':form,'form2':form2,'form3':form3})  
+
+def carrega_tamanhos(request):
+    tamanhos = []
+    precos = []
+
+    return render(request, 'core/tamanhos.html',{'tamanhos':tamanhos,'precos':precos})

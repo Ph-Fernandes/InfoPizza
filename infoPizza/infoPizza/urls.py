@@ -13,7 +13,11 @@ urlpatterns = [
     path('cardapio/bebida/insert',views.cardapioBebidaInsert),
     path('cardapio/bebida/edit/<int:id>',views.cardapioBebidaUpdate),
     path('cardapio/bebida/delete/<int:id>',views.cardapioBebidaDestroy),
-    #path('pedidos/',views.pedidosIndex),
-    #path('pedidos/mesa/order/<int:id>',views.pedidosMesaOrder),
+    path('pedidos/',views.pedidosIndex),
+    path('pedidos/insert',views.pedidosInsert),
     #path('caixa/mesa/insert',views.caixaMesaInsert)
+    
 ]  
+
+
+

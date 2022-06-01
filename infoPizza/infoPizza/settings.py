@@ -38,7 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',  
     'django.contrib.staticfiles',  
     'app',
-    'django_pdb'  
+    'django_pdb'
 ]  
 
 MIDDLEWARE = [
@@ -134,6 +134,7 @@ USE_TZ = True
 THOUSAND_SEPARATOR='.'
 
 USE_THOUSAND_SEPARATOR=True
+
 
 
 # Static files (CSS, JavaScript, Images)

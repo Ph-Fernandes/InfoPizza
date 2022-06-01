@@ -1,4 +1,6 @@
+from turtle import ondrag
 from django.db import models
+from django.forms import CharField
 
 class Produto(models.Model):   
     nome = models.CharField(max_length=100,unique=True)  
@@ -21,3 +23,27 @@ class Bebida(models.Model):
     quant = models.IntegerField()
     class Meta:
         db_table = "bebida"
+
+
+class Pedido(models.Model):
+    status = models.CharField(default="Inicio",max_length=100)
+    tempo = models.DateTimeField(auto_now_add=True)
+    metodoPag = models.CharField(null=True,max_length=50)
+    obs = models.CharField(max_length=500)
+    class Meta:
+        db_table = "pedido"
+
+class ItensPedido(models.Model):
+    pedido = models.ForeignKey(Pedido,on_delete=models.CASCADE)
+    nome = models.CharField(max_length=100)
+    tamanho = models.CharField(max_length=50)
+    preco = models.DecimalField(max_digits=4,decimal_places=2)
+    class Meta:
+        db_table = "itensPedido"
+
+class Mesa(models.Model):
+    status = models.BooleanField()
+    pedido = models.ForeignKey(Pedido,on_delete=models.CASCADE)
+    class Meta:
+        db_table = "mesa"
+
